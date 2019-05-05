@@ -9,10 +9,12 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset ('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
-      <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+
+    <!-- подключаем boostrap
+
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">-->
+
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -87,6 +89,12 @@
             @yield('content')
         </main>
     </div>
-     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script>
+    CKEDITOR.replace( 'description' );
+    CKEDITOR.replace( 'description_short' );
+</script>
 </body>
 </html>
