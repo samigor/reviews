@@ -24,8 +24,8 @@
     <form onsubmit="if(confirm('delete?')){ return true } else { return false }"  action="{{route('admin.article.destroy', $article)}}" method="post">
     <input type="hidden" name="_method" value="DELETE">
     {{ csrf_field() }}
-    <button type="submit" class="btn"><i class="fa fa-trash-o"></i></button>
-      <a class="btn btn-default" href="{{route('admin.article.edit', $article)}}"><i class="fa fa-edit"></i></a>
+          <a class="btn btn-default" href="{{route('admin.article.edit', $article)}}"><i class="fa fa-edit"></i></a>
+      <button type="submit" class="btn"><i class="fa fa-trash-o"></i></button>
     </form>
  </td>
 </tr>

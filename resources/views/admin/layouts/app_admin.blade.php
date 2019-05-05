@@ -11,13 +11,15 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset ('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+      <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/fontawesome.min.css" rel="stylesheet">
 
@@ -85,5 +87,6 @@
             @yield('content')
         </main>
     </div>
+     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 </body>
 </html>
