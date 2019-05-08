@@ -40,11 +40,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-  <li class="navbarDropdown">
+                      <li>
+
+                        <a class="navbar-brand" href="{{route('admin.index')}}" >Панель состояния</a>
+                      </li>
+  <li class="nav-item dropdown">
 <a href="#" class="navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">Блог</a>
 <ul class="dropdown-menu" role="menu">
-  <li><a href="{{route('admin.category.index')}}">Категории</a> </li>
-    <li><a href="{{route('admin.article.index')}}">Материалы</a> </li>
+  <li><a  class="dropdown-item" href="{{route('admin.category.index')}}">Категории</a> </li>
+    <li><a  class="dropdown-item" href="{{route('admin.article.index')}}">Материалы</a> </li>
 </ul>
   </li>
                     </ul>
