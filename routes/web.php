@@ -19,7 +19,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth']], fu
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('blog.home');
 });
 
 Auth::routes();

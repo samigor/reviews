@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         //ckeditor
         Unisharp\Ckeditor\ServiceProvider::class,
+        //own Providers
+        App\Providers\BlogServiceProvider::class,
     ],
 
     /*
