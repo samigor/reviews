@@ -51,6 +51,12 @@
     <li><a  class="dropdown-item" href="{{route('admin.article.index')}}">Материалы</a> </li>
 </ul>
   </li>
+  <li class="nav-item dropdown">
+                         <a href="#" class="navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">Управление пользователями</a>
+                         <ul class="dropdown-menu" role="menu">
+                           <li><a class="dropdown-item"  href="{{route('admin.user_management.user.index')}}">Пользователи</a></li>
+                         </ul>
+                       </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -30,6 +30,17 @@
 <input type="text" class="form-control" name="meta_description" placeholder="Мета описание" value="{{$article->meta_description ?? ""}}">
 <label for="">Ключевые слова</label>
 <input type="text" class="form-control" name="meta_keyword" placeholder="Ключевые слова, через запятую" value="{{$article->meta_keyword ?? ""}}">
+<form enctype="multipart/form-data" action="{{route('image.upload')}}" method="post">
+  {{csrf_field()}}
+  <div class="form-group">
+    <input type="file" name="image" value="">
+    <button class="btn btn-primary" type="submit">Загрузка</button>
+  </div>
+
+</form>
+@isset ($path)
+<img class="img-fluid" src="{{asset('/storage/' . $path)}}" alt="">
+@endisset
 <hr />
 
 <input class="btn btn-primary" type="submit" value="Сохранить">
