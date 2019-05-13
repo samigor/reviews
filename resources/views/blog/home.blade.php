@@ -60,7 +60,7 @@
 
 
       		<!-- right content column-->
-      		<div class="col-md-7" id="content">
+      		<div class="col-md-9" id="content">
             	<div class="panel">
     			<div class="panel-heading" style="background-color:#111;color:#fff;">Последние новости</div>
               	<div class="panel-body">

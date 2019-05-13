@@ -25,7 +25,7 @@
 Route::post('/image/upload','ImageController@upload')->name('image.upload');
 Route::get('/about', function(){return view('about');});
 Route::get('/contact', function(){return view('contact');});
-
+Route::post('/mail', 'MailController@send_mail');
 Route::get('/', 'HomeController@index', function () { return view('blog.home');});
 
 Auth::routes();
@@ -34,4 +34,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::get('send', 'MailController@send');
 // Email related routes
-Route::get('mail/send', 'MailController@send');
+//Route::get('mail/send', 'MailController@send');

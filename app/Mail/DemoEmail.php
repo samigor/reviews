@@ -23,29 +23,28 @@ class DemoEmail extends Mailable
      *
      * @return void
      */
-    public function __construct($demo)
-    {
-        $this->demo = $demo;
-    }
+     public function __construct($name,$email,$phone,$msg)
+     {
+             $this->name=$name;
+             $this->email=$email;
+             $this->phone=$phone;
+             $this->msg=$msg;
+     }
 
     /**
      * Build the message.
      *
      * @return $this
      */
-    public function build()
-    {
-        return $this->from('sender@example.com')
-                    ->view('mails.demo')
-                    ->text('mails.demo_plain')
-                    ->with(
-                      [
-                            'testVarOne' => '1',
-                            'testVarTwo' => '2',
-                      ])
-                      ->attach(public_path('/images').'/demo.jpg', [
-                              'as' => 'demo.jpg',
-                              'mime' => 'image/jpeg',
-                      ]);
+     public function build()
+     {
+         return $this->view('mails.demo')
+             ->with([
+                 'name'=>$this->name,
+                 'email'=>$this->email,
+                 'phone'=>$this->phone,
+                 'message'=>$this->msg,
+             ])
+             ->subject('Новое письмо');
     }
 }
