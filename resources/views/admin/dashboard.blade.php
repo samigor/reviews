@@ -3,27 +3,37 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-3">
-      <div class="jumbotron">
-        <p><span class="list-group-item d-flex justify-content-between align-items-center">Категорий {{$count_categories}}</span></p>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="jumbotron ">
-        <p><span class="list-group-item d-flex justify-content-between align-items-center">Статей {{$count_articles}}</span></p>
-      </div>
+        <div class="jumbotron">
+      <button type="button" class="btn btn-primary">
+  Категорий <span class="badge badge-light">{{$count_categories}}</span>
+</button>
+  </div>
     </div>
     <div class="col-sm-3">
       <div class="jumbotron">
-        <p><span class="list-group-item d-flex justify-content-between align-items-center">Посетителей 0</span></p>
-      </div>
+      <button type="button" class="btn btn-primary">
+  Статей <span class="badge badge-light">{{$count_articles}}</span>
+</button>
+</div>
     </div>
     <div class="col-sm-3">
-      <div class="jumbotron">
-        <p><span class="list-group-item d-flex justify-content-between align-items-center">Сегодня 0</span></p>
-      </div>
+        <div class="jumbotron">
+      <button type="button" class="btn btn-primary">
+  Комментариев <span class="badge badge-light">0</span>
+</button>
+  </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="jumbotron">
+      <button type="button" class="btn btn-primary">
+  Пользователей <span class="badge badge-light">1</span>
+</button>
+  </div>
     </div>
     <div class="col-sm-6">
+      <div class="alert alert-primary" role="alert">
       <a class="list-group-item list-group-item-action" href="{{route('admin.category.create')}}">Создать категорию</a>
+      </div>
       @foreach ($categories as $category)
       <a class="list-group-item" href="{{route('admin.category.edit', $category)}}">
       <h4 class="d-flex w-100 justify-content-between">{{$category->title}}</h4>
@@ -31,7 +41,9 @@
       @endforeach
     </div>
     <div class="col-sm-6">
+        <div class="alert alert-primary" role="alert">
       <a class="list-group-item list-group-item-action" href="{{route('admin.article.create')}}">Создать материал</a>
+        </div>
           @foreach ($articles as $article)
       <a class="list-group-item" href="{{route('admin.article.edit', $article)}}">
       <h4 class="d-flex w-100 justify-content-between">{{$article->title}}</h4>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+<nav class="navbar navbar-expand-md navbar navbar-dark bg-primary navbar-laravel">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             Новостной блог
