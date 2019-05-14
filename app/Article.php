@@ -20,4 +20,16 @@ class Article extends Model
     {
       return $query ->orderBy('created_at', 'desc') -> take($count) ->get();
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    //public function getComments()
+    //{
+    //    return $this->comments()->get();
+    //}
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

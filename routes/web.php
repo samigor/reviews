@@ -20,6 +20,11 @@
       Route::group(['prefix' => 'user_management', 'namespace' => 'UserManagement'], function() {
   	     Route::resource('/user', 'UserController', ['as' => 'admin.user_management']);
         });
+      Route::delete('/comments/{id}/destroy', 'CommentsController@destroy')->name('comments.destroy');
+      });
+
+Route::group(['middleware'	=>	'auth'], function(){
+          Route::post('/comment', 'CommentsController@store');
       });
 
 Route::post('/image/upload','ImageController@upload')->name('image.upload');

@@ -18,45 +18,49 @@
 <div class="container">
 	<div class="no-gutter row">
       		<!-- left side column -->
-  			<div class="col-md-2">
-              	<div class="panel panel-default" id="sidebar">
-                <div class="panel-heading" style="background-color:#888;color:#fff;">Категории</div>
-                <div class="panel-body">
-
-                <div class="accordion" id="accordion2">
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                                Культура
-                            </a>
-                        </div>
-                        <div id="collapseOne" class="accordion-body collapse in">
+          <div class="col-md-2">
+                  <div class="panel panel-default" id="sidebar">
+                  <div class="panel-heading" style="background-color:#888;color:#fff;">Боковое меню</div>
+                  <div class="panel-body">
+                    
+                  <div class="accordion" id="accordion2">
+                      <div class="accordion-group">
+                          <div class="accordion-heading">
+                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                                  Комментарии
+                              </a>
+                          </div>
+                          <div id="collapseOne" class="accordion-body collapse in">
                             <div class="accordion-inner">
-                                Content here for links, ads, etc..
+                                Комментариев (0)
                             </div>
                         </div>
                     </div>
                     <div class="accordion-group">
                             <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                                    Accordion
+                                    Теги
                                 </a>
                             </div>
                             <div id="collapseTwo" class="accordion-body collapse">
                                 <div class="accordion-inner">
-                                    Another collapse panel. Content here for links, ads, etc..
+                                    Тег 1
+                                    Тег 2
+                                    Тег 3
                                 </div>
-                            </div>
-                        </div>
-               	</div><!--/acc-->
+                              </div>
+                          </div>
 
-                  <hr>
+                  </div><!--/acc-->
+
+                    <hr>
 
 
 
-                </div><!--/panel body-->
-              </div><!--/panel-->
-      		</div><!--/end left column-->
+                  </div><!--/panel body-->
+                </div><!--/panel-->
+            </div><!--/end left column-->
+
 
 
       		<!-- right content column-->

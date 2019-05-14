@@ -23,34 +23,37 @@
       		<!-- left side column -->
   			<div class="col-md-2">
               	<div class="panel panel-default" id="sidebar">
-                <div class="panel-heading" style="background-color:#888;color:#fff;">Категории</div>
+                <div class="panel-heading" style="background-color:#888;color:#fff;">Боковое меню</div>
                 <div class="panel-body">
 
                 <div class="accordion" id="accordion2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                                Культура
+                                Комментарии
                             </a>
                         </div>
                         <div id="collapseOne" class="accordion-body collapse in">
-                            <div class="accordion-inner">
-                                Content here for links, ads, etc..
+                          <div class="accordion-inner">
+                              Комментариев (0)
+                          </div>
+                      </div>
+                  </div>
+                  <div class="accordion-group">
+                          <div class="accordion-heading">
+                              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                                  Теги
+                              </a>
+                          </div>
+                          <div id="collapseTwo" class="accordion-body collapse">
+                              <div class="accordion-inner">
+                                  Тег 1
+                                  Тег 2
+                                  Тег 3
+                              </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-group">
-                            <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                                    Accordion
-                                </a>
-                            </div>
-                            <div id="collapseTwo" class="accordion-body collapse">
-                                <div class="accordion-inner">
-                                    Another collapse panel. Content here for links, ads, etc..
-                                </div>
-                            </div>
-                        </div>
+
                	</div><!--/acc-->
 
                   <hr>
@@ -83,7 +86,47 @@
 
                   <hr>
 
+                  @if(!$article->comments->isEmpty())
+                                        @foreach($article->comments as $comment)
+                                            <div class="bottom-comment"><!--bottom comment-->
+                                                <div class="comment-img">
+                                                    <img class="img-circle" src="/images/comment.jpg" alt="" width="75" height="75">
+                                                </div>
 
+                                                <div class="comment-text">
+                                                    <h5>{{$comment->author->name}}</h5>
+
+                                                         <p class="comment-date">
+                                                        {{$comment->created_at->diffForHumans()}}
+                                                    </p>
+                                                    <p class="para">{{$comment->text}}</p>
+                                                </div>
+                                               @include('admin.delmess')
+                                            </div>
+
+                                        @endforeach
+                                    @endif
+                                <!-- end bottom comment-->
+
+                                 @if(Auth::check())
+                                    <div class="leave-comment"><!--leave comment-->
+                                        <h4>Оставьте комментарий</h4>
+
+
+                                        <form class="form-horizontal contact-form" role="form" method="post" action="/comment">
+                                            {{csrf_field()}}
+                                            <input type="hidden" name="article_id" value="{{$article->id}}">
+                                             <div class="form-group">
+                                                <div class="col-md-12">
+                										<textarea class="form-control" rows="6" name="message"
+                                                                  placeholder="Напишите комментарий"></textarea>
+                                                </div>
+                                            </div>
+                                            <button class="btn send-btn">Отправить</button>
+                                        </form>
+                                    </div><!--end leave comment-->
+                                     @endif
+                                </div>
 
                   </div><!--/panel-body-->
                 </div><!--/panel-->

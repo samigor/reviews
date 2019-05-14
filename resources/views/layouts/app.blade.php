@@ -19,6 +19,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" href="{{asset('css')}}/app.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="{{asset('comments/css')}}/comments.css" />
+
+
+		<script type="text/javascript" src="{{asset('js')}}/app.js" /></script>
+		<script type="text/javascript" src="{{asset('comments/js')}}/comment-reply.js" /></script>
+		<script type="text/javascript" src="{{asset('comments/js')}}/comment-scripts.js" /></script>
 </head>
 <body>
     <div id="app">
@@ -26,6 +33,7 @@
 
         <main class="py-4">
             @yield('content')
+            @yield('comments')	
         </main>
     </div>
      <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>

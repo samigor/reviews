@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Админка сайта</title>
 
 
     <!-- подключаем boostrap
@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    На главную
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -45,7 +45,7 @@
                         <a class="navbar-brand" href="{{route('admin.index')}}" >Панель состояния</a>
                       </li>
   <li class="nav-item dropdown">
-<a href="#" class="navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">Блог</a>
+<a href="#" class="navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">Управление контентом</a>
 <ul class="dropdown-menu" role="menu">
   <li><a  class="dropdown-item" href="{{route('admin.category.index')}}">Категории</a> </li>
     <li><a  class="dropdown-item" href="{{route('admin.article.index')}}">Материалы</a> </li>
