@@ -51,7 +51,7 @@ class HomeController extends Controller
 
         $articles = $tag->articles()->paginate(5);
 
-        return view('list', ['articles'  =>  $articles]);
+        return view('blog.home', ['articles'  =>  $articles]);
     }
 
     public function category($slug)
@@ -60,7 +60,7 @@ class HomeController extends Controller
 
         $articles = $category->articles()->paginate(5);
 
-        return view('list', ['articles'  =>  $articles]);
+        return view('blog.home', ['articles'  =>  $articles]);
     }
 
 }

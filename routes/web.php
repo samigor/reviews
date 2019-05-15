@@ -12,9 +12,11 @@
 */
   Route::get('/blog/category/{slug?}','BlogController@category')->name('category.show');
   Route::get('/blog/article/{slug?}','BlogController@article')->name('article');
+  Route::get('/tag/{slug}', 'HomeController@tag')->name('tag.show');
 
   Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth']], function(){
     Route::get('/', 'DashboardController@dashboard')->name('admin.index');
+    Route::resource('/tags','TagsController',['as'=>'admin']);
     Route::resource('/category','CategoryController',['as'=>'admin']);
     Route::resource('/article','ArticleController',['as'=>'admin']);
       Route::group(['prefix' => 'user_management', 'namespace' => 'UserManagement'], function() {

@@ -1,3 +1,7 @@
+{!! Form::open([
+		'route'	=> 'admin.article.store',
+		'files'	=>	true
+	])!!}
 <label for="">Статус</label>
 <select class="form-control" name="published">
   @if (isset($article->id))
@@ -20,6 +24,7 @@
 
   @include('admin.articles.partials.categories', ['categories' => $categories])
 </select>
+
 <label for="Краткое описание"></label>
 <textarea class="form-control" id="description_short" name="description_short" >{{$article->description_short ?? ""}}</textarea>
 <label for="Полное описание"></label>
@@ -30,7 +35,7 @@
 <input type="text" class="form-control" name="meta_description" placeholder="Мета описание" value="{{$article->meta_description ?? ""}}">
 <label for="">Ключевые слова</label>
 <input type="text" class="form-control" name="meta_keyword" placeholder="Ключевые слова, через запятую" value="{{$article->meta_keyword ?? ""}}">
-<form enctype="multipart/form-data" action="{{route('image.upload')}}" method="post">
+<!-- <form enctype="multipart/form-data" action="{{route('image.upload')}}" method="post">
   {{csrf_field()}}
   <div class="form-group">
     <input type="file" name="image" value="">
@@ -41,6 +46,15 @@
 @isset ($path)
 <img class="img-fluid" src="{{asset('/storage/' . $path)}}" alt="">
 @endisset
-<hr />
+<hr /> -->
 
+<label>Теги</label>
+{!! Form::select('tags[]',
+  $tags,
+  null,
+  ['class' => 'form-control select2', 'multiple'=>'multiple','data-placeholder'=>'Выберите теги'])
+!!}
+
+<hr />
 <input class="btn btn-primary" type="submit" value="Сохранить">
+{!! Form::close()!!}

@@ -16,6 +16,10 @@ class Article extends Model
     public function categories() {
       return $this->morphToMany('App\Category','categoryable');
     }
+    public function children(){
+          return $this->hasMany(self::class,'post_id');
+      }
+
     public function scopeLastArticles ($query, $count)
     {
       return $query ->orderBy('created_at', 'desc') -> take($count) ->get();
@@ -32,4 +36,16 @@ class Article extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function tags(){
+       return $this->belongsToMany(
+          Tag::class,
+         'post_tags',
+       'post_id',
+     'tag_id'
+    );
+    }
+    public function setTags($ids){
+      if($ids==null){return;}
+      $this->tags()->sync($ids);
+}
 }

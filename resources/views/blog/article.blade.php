@@ -47,9 +47,11 @@
                           </div>
                           <div id="collapseTwo" class="accordion-body collapse">
                               <div class="accordion-inner">
-                                  Тег 1
-                                  Тег 2
-                                  Тег 3
+                                <div class="decoration">
+                                                              @foreach($article->tags as $tag)
+                                                              <a href="{{route('tag.show', $tag->slug)}}" class="btn btn-default">{{$tag->title}}</a>
+                                                              @endforeach
+                                                          </div>
                               </div>
                             </div>
                         </div>

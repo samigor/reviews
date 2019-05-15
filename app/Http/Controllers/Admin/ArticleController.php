@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Tag;
 use App\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,9 +26,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view ('admin.articles.create',[
+        $tags=Tag::pluck('title','id')->all();
+        return view ('admin.articles.create',compact('tags'), [
           'article'   => [],
-          'categories' => Category::with('children')->where('parent_id', '0')->get(),
+          'categories' => Category::with('children')->where('parent_id',0)->get(),
           'delimiter'  => ''
         ]);
     }
@@ -46,6 +47,7 @@ class ArticleController extends Controller
         // Categories
         if($request->input('categories')) :
           $article->categories()->attach($request->input('categories'));
+          $article->setTags($request->get('tags'));
         endif;
 
         return redirect()->route('admin.article.index');
@@ -69,8 +71,8 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Article $article)
-    {
-        return view('admin.articles.edit',
+    { $tags=Tag::pluck('title','id')->all();
+        return view('admin.articles.edit', compact('tags','selectedTags'),
         [
           'article'    => $article,
           'categories' => Category::with('children')->where('parent_id', '0')->get(),
@@ -89,12 +91,13 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $article -> update($request->except('slug'));
+        $tags=Tag::pluck('title','id')->all();
 //categories
         $article->categories()->detach();
         if($request->input('categories')) :
           $article->categories()->attach($request->input('categories'));
         endif;
-  return redirect()->route('admin.article.index');
+  return redirect()->route('admin.article.index', compact('tags'));
     }
 
     /**
