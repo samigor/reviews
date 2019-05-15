@@ -16,7 +16,7 @@ class HomeController extends Controller
         $popularArticle=Article::orderBy('viewed','desc')->take(3)->get();
         $recentArticle=Article::orderBy('created_at','desc')->take(4)->get();
         $categories=Category::all();
-        return view('/blog/home',[
+        return view('/home',[
             'articles'=>$articles,
             'popularArticle'=>$popularArticle,
             'recentArticle'=>$recentArticle,
@@ -51,7 +51,7 @@ class HomeController extends Controller
 
         $articles = $tag->articles()->paginate(5);
 
-        return view('blog.home', ['articles'  =>  $articles]);
+        return view('home', ['articles'  =>  $articles]);
     }
 
     public function category($slug)
@@ -60,7 +60,7 @@ class HomeController extends Controller
 
         $articles = $category->articles()->paginate(5);
 
-        return view('blog.home', ['articles'  =>  $articles]);
+        return view('home', ['articles'  =>  $articles]);
     }
 
 }

@@ -19,14 +19,15 @@
     <div class="col-sm-3">
         <div class="jumbotron">
       <button type="button" class="btn btn-primary">
-  Комментариев <span class="badge badge-light">0</span>
+
+  Комментариев <span class="badge badge-light">{{$count_comments}}</span>
 </button>
   </div>
     </div>
     <div class="col-sm-3">
         <div class="jumbotron">
       <button type="button" class="btn btn-primary">
-  Пользователей <span class="badge badge-light">1</span>
+  Пользователей <span class="badge badge-light">{{$count_users}}</span>
 </button>
   </div>
     </div>

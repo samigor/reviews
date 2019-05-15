@@ -10,8 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-  Route::get('/blog/category/{slug?}','BlogController@category')->name('category.show');
-  Route::get('/blog/article/{slug?}','BlogController@article')->name('article');
+  Route::get('/category/{slug?}','BlogController@category')->name('category.show');
+  Route::get('/article/{slug?}','BlogController@article')->name('article');
   Route::get('/tag/{slug}', 'HomeController@tag')->name('tag.show');
 
   Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['auth']], function(){
@@ -29,16 +29,22 @@ Route::group(['middleware'	=>	'auth'], function(){
           Route::post('/comment', 'CommentsController@store');
       });
 
-Route::post('/image/upload','ImageController@upload')->name('image.upload');
+// Route::post('/image/upload','ImageController@upload')->name('image.upload');
 Route::get('/about', function(){return view('about');});
 Route::get('/contact', function(){return view('contact');});
 Route::post('/mail', 'MailController@send_mail');
-Route::get('/', 'HomeController@index', function () { return view('blog.home');});
+Route::get('/', 'HomeController@index', function () { return view('home');});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::get('send', 'MailController@send');
 // Email related routes
 //Route::get('mail/send', 'MailController@send');
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('config:clear');
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
+    return 'DONE'; //Return anything
+});
